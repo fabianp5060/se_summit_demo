@@ -1,0 +1,33 @@
+<h3><%= @title %></h3>
+<table>
+	<thead>
+		<tr>
+			<th><b>First Name</b></th>
+			<th><b>Last Name</b></th>
+			<th><b>Phone Number</b></th>
+			<th><b>DTMF Selection</b></th>
+		</tr>		
+	</thead>
+	<tbody>
+		<% @db.each do |db_entry| %>
+		<tr>
+			<td><%=db_entry.attributes[:first_name]%></td>
+			<td><%=db_entry.attributes[:last_name]%></td>
+			<td><%=db_entry.attributes[:phone_number]%></td>
+			<td><%=db_entry.attributes[:dtmf]%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+<form method="POST" action="/users">
+  First name:<br>
+  <input type="text" name="first_name"><br>
+  Last name:<br>
+  <input type="text" name="last_name"><br>
+  Phone Number:<br>
+  <input type="text" name="phone_number"><br>
+  <button type="Submit">Add User</button>
+</form>
